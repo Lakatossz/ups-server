@@ -1,0 +1,3 @@
+/home/jaroslav/Stažené/ups_semestralka/server/cmake-build-debug-coverage/CMakeFiles/server.dir
+/home/jaroslav/Stažené/ups_semestralka/server/cmake-build-debug-coverage/CMakeFiles/edit_cache.dir
+/home/jaroslav/Stažené/ups_semestralka/server/cmake-build-debug-coverage/CMakeFiles/rebuild_cache.dir

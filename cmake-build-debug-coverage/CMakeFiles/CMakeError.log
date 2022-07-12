@@ -1,0 +1,62 @@
+The C compiler identification could not be found in "/home/jaroslav/Stažené/ups_semestralka/server/cmake-build-debug-coverage/CMakeFiles/3.22.3/CompilerIdC/CMakeCCompilerId.gcno"
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/jaroslav/Stažené/ups_semestralka/server/cmake-build-debug-coverage/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_4ecd2/fast && /usr/bin/make  -f CMakeFiles/cmTC_4ecd2.dir/build.make CMakeFiles/cmTC_4ecd2.dir/build
+make[1]: Vstupuje se do adresáře „/home/jaroslav/Stažené/ups_semestralka/server/cmake-build-debug-coverage/CMakeFiles/CMakeTmp“
+Building C object CMakeFiles/cmTC_4ecd2.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  --coverage  -std=gnu99 -o CMakeFiles/cmTC_4ecd2.dir/src.c.o -c /home/jaroslav/Stažené/ups_semestralka/server/cmake-build-debug-coverage/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_4ecd2
+/snap/clion/198/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4ecd2.dir/link.txt --verbose=1
+/usr/bin/cc --coverage  CMakeFiles/cmTC_4ecd2.dir/src.c.o -o cmTC_4ecd2 
+/usr/bin/ld: CMakeFiles/cmTC_4ecd2.dir/src.c.o: in function `main':
+src.c:(.text+0x6a): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x88): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0xa6): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0xc9): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_4ecd2.dir/build.make:99: cmTC_4ecd2] Chyba 1
+make[1]: Opouští se adresář „/home/jaroslav/Stažené/ups_semestralka/server/cmake-build-debug-coverage/CMakeFiles/CMakeTmp“
+make: *** [Makefile:127: cmTC_4ecd2/fast] Chyba 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/jaroslav/Stažené/ups_semestralka/server/cmake-build-debug-coverage/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a624c/fast && /usr/bin/make  -f CMakeFiles/cmTC_a624c.dir/build.make CMakeFiles/cmTC_a624c.dir/build
+make[1]: Vstupuje se do adresáře „/home/jaroslav/Stažené/ups_semestralka/server/cmake-build-debug-coverage/CMakeFiles/CMakeTmp“
+Building C object CMakeFiles/cmTC_a624c.dir/CheckFunctionExists.c.o
+/usr/bin/cc   --coverage -DCHECK_FUNCTION_EXISTS=pthread_create -std=gnu99 -o CMakeFiles/cmTC_a624c.dir/CheckFunctionExists.c.o -c /snap/clion/198/bin/cmake/linux/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a624c
+/snap/clion/198/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a624c.dir/link.txt --verbose=1
+/usr/bin/cc --coverage -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_a624c.dir/CheckFunctionExists.c.o -o cmTC_a624c  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_a624c.dir/build.make:99: cmTC_a624c] Chyba 1
+make[1]: Opouští se adresář „/home/jaroslav/Stažené/ups_semestralka/server/cmake-build-debug-coverage/CMakeFiles/CMakeTmp“
+make: *** [Makefile:127: cmTC_a624c/fast] Chyba 2
+
+
+
